@@ -4,7 +4,6 @@ import kr.re.kitri.hello.model.Product;
 import kr.re.kitri.hello.service.ProductService;
 
 public class VirtualProductServiceImpl implements ProductService {
-
     @Override
     public String retrieveProducts() {
         return null;

@@ -6,7 +6,7 @@ public class Product {
     private long price;
     private String description;
 
-    public Product(){}
+    public Product() {}
 
     public Product(String productId, String name, long price, String description) {
         this.productId = productId;
