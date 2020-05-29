@@ -14,21 +14,25 @@ import org.springframework.stereotype.Component;
 public class KitriAspect {
 
     private static Logger log = LoggerFactory.getLogger(KitriAspect.class);
+
     @Before("execution(* kr.re.kitri.hello.service.*Service.*(..))")
-    public void logging(JoinPoint joinPoint){
+    public void logging(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
-        System.out.println(methodName + "로그를 남깁니다.");
+        System.out.println(methodName + " 에서 로그를 남깁니다.");
     }
 
     @Around("execution(* kr.re.kitri.hello..dao.*Dao.*(..))")
-    public Object measureAdvice(ProceedingJoinPoint pjp) throws Throwable{
+    public Object measureAdvice(ProceedingJoinPoint pjp) throws Throwable {
         long startTime = System.currentTimeMillis();
-        Object obj = pjp.proceed(); //해당 점수를 실행 시킨다.
+        Object obj = pjp.proceed(); // 해당 함수를 실행 시킨다.
         long endTime = System.currentTimeMillis();
 
         long estimatedTime = endTime - startTime;
-        log.debug(pjp.getSignature().getDeclaringTypeName() + "클래스의 " + pjp.getSignature().getName() + "메소드의 수행 시간은" + estimatedTime + "밀리 초 입니다.");
+        log.debug(pjp.getSignature().getDeclaringTypeName() + "클래스의 " +
+                pjp.getSignature().getName() + "메소드의 수행 시간은 " +
+                estimatedTime + "밀리초 입니다.");
         return obj;
-
     }
 }
+
+

@@ -14,20 +14,17 @@ public class UserService {
     private UserDao userDao;
 
     public void registUser(User user) {
-
         userDao.insertUser(user);
     }
 
     public List<User> getAllUsers() {
-
+//        double a = 3 / 0;
+//        int[] a = {1,2,3};
+//        int b = a[4];
         return userDao.selectAllUsers();
     }
 
     public User getUserDetails(String userId) {
-
         return userDao.selectUserByUserId(userId);
     }
-
-
-
 }

@@ -11,7 +11,6 @@ import java.util.List;
 
 @RestController
 public class UserController {
-
     private static Logger log = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
@@ -30,6 +29,7 @@ public class UserController {
 
     @GetMapping("/users/{userId}")
     public User viewUserDetails(@PathVariable String userId) {
+        log.debug("잘 조회 되었습니다. " + userId);
         return userService.getUserDetails(userId);
     }
 }
