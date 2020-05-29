@@ -33,9 +33,12 @@ public class GlobalExceptionHandler {
         return "SQL 예외 발생";
     }
 
+    /*
     @ExceptionHandler(value = Exception.class)
     public String handleAll(Exception e){
         return "기타등등 예외를 모두 여기서 잡아버립니다." + e;
     }
+    */
+
 
 }
